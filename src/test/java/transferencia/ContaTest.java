@@ -31,7 +31,7 @@ public class ContaTest {
 
     @Test
     @DisplayName("Realizar Deposito")
-    public void realizarDepositoInvalido(){
+    public void realizarDeposito(){
         contaXuxa.realizarDeposito(1000);
         assertEquals(3500, contaXuxa.getSaldo());
     }
