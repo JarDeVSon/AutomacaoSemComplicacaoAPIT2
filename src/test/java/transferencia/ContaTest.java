@@ -14,73 +14,75 @@ public class ContaTest {
 
     @BeforeEach
     void setUp() {
-        xuxa = new Cliente("Xuxa","12345678909","111111");
-        silvioSantos = new Cliente("Xuxa","12345678909","111111");
-        contaXuxa = new Conta("0025","1234", 2500.00, xuxa);
-        contaSilvioSantos = new Conta("2500","4321", 1500.00, silvioSantos);
+        xuxa = new Cliente("Xuxa", "12345678909", "111111");
+        silvioSantos = new Cliente("Xuxa", "12345678909", "111111");
+        contaXuxa = new Conta("0025", "1234", 2500.00, xuxa);
+        contaSilvioSantos = new Conta("2500", "4321", 1500.00, silvioSantos);
 
     }
 
     @Test
     @DisplayName("Realizar Transacao")
-    public void realizarTransacao(){
-        contaXuxa.realizarTransferencia(1000,contaSilvioSantos);
+    public void realizarTransacao() throws Exception {
+        contaXuxa.realizarTransferencia(1000, contaSilvioSantos);
         assertEquals(1500, contaXuxa.getSaldo());
         assertEquals(2500, contaSilvioSantos.getSaldo());
     }
 
     @Test
     @DisplayName("Realizar Deposito")
-    public void realizarDeposito(){
+    public void realizarDeposito() {
         contaXuxa.realizarDeposito(2000);
         assertEquals(4500, contaXuxa.getSaldo());
     }
+
     @Test
-    @DisplayName("Realizar Saque Invalido")
-    public void realizarSaqueInvalido(){
+    @DisplayName("Realizar Saque")
+    public void realizarSaque() throws Exception {
         contaXuxa.realizarSaque(2500);
-        assertEquals(0,contaXuxa.getSaldo());
+        assertEquals(0, contaXuxa.getSaldo());
     }
 
     @Test
     void getAgencia() {
         String agencia = contaXuxa.getAgencia();
         assertEquals("0025",
-                            agencia);
+                agencia);
     }
 
     @Test
     void getNumeroConta() {
         String conta = contaXuxa.getNumeroConta();
-        assertEquals("1234",conta);
+        assertEquals("1234", conta);
     }
 
     @Test
     void getSaldo() {
         double saldo = contaXuxa.getSaldo();
-        assertEquals(2500.00,saldo);
+        assertEquals(2500.00, saldo);
     }
 
     @Test
     void getProprietario() {
         Cliente proprietario = contaXuxa.getProprietario();
-        assertEquals(xuxa,proprietario);
+        assertEquals(xuxa, proprietario);
     }
+
     @Test
     void getNome() {
         String nome = xuxa.getNome();
-        assertEquals("Xuxa",nome);
+        assertEquals("Xuxa", nome);
     }
 
     @Test
     void getCpf() {
         String cpf = xuxa.getCpf();
-        assertEquals("12345678909",cpf);
+        assertEquals("12345678909", cpf);
     }
 
     @Test
     void getRg() {
         String rg = xuxa.getRg();
-        assertEquals("111111",rg);
+        assertEquals("111111", rg);
     }
 }
