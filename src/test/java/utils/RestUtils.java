@@ -8,11 +8,18 @@ import java.util.Map;
 
 public class RestUtils {
 
-    private Response response;
+    private static Response response;
 
+    public static Response getResponse() {
+        return response;
+    }
+
+    public static String setBaseURI(String uri) {
+        return RestAssured.baseURI = uri;
+    }
 
     public static Response post(Object json, ContentType contentType, String endpoint) {
-        return RestAssured.given().log().all()
+        return response = RestAssured.given().log().all()
                 .relaxedHTTPSValidation()
                 .contentType(contentType)
                 .body(json)
@@ -24,7 +31,7 @@ public class RestUtils {
     }
 
     public static Response get(Map<String, String> header, String endpoint) {
-        return RestAssured.given().log().all()
+        return response =  RestAssured.given().log().all()
                 .relaxedHTTPSValidation()
                 .headers(header)
                 .when()
