@@ -8,21 +8,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import utils.RestUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlataformaFilmesTest {
     static String token;
-
     @BeforeAll
-    static void beforeAll() {
-        RestAssured.baseURI = "http://localhost:8080/";
-    }
-
-    @Test
-    public void validarLogin() {
+    public static void validarLoginMap() {
+        RestUtils.setBaseURI("http://localhost:8080/");
         Map<String, String> map = new HashMap<>();
         map.put("email","aluno@email.com");
         map.put("senha","123456");
@@ -38,8 +36,9 @@ public class PlataformaFilmesTest {
         Map<String, String> header = new HashMap<>();
         header.put("Authorization", "Bearer "+token);
         Response response = RestUtils.get(header,"categorias");
-
         assertEquals(200, response.statusCode());
+        List<String> listCategorias = response.jsonPath().get("tipo");
+        assertTrue(listCategorias.contains("Terror"));
 
     }
 
