@@ -21,6 +21,7 @@ public class PlataformaFilmesTest {
     @BeforeAll
     public static void validarLoginMap() {
         RestUtils.setBaseURI("http://localhost:8080/");
+
         Map<String, String> map = new HashMap<>();
         map.put("email","aluno@email.com");
         map.put("senha","123456");
