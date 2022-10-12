@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.pt.Dado;
+import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import io.restassured.http.ContentType;
 import maps.LoginMap;
@@ -23,5 +24,17 @@ public class LoginSteps {
     public void envioUmaRequisicaoDoTipoPOSTDeLogin() {
         RestUtils.post(LoginMap.getLogin(), ContentType.JSON,"auth");
     }
+    @Entao("armazeno o token que recebo do response de Login")
+    public void armazenoOTokenQueReceboDoResponseDeLogin() {
+        LoginMap.token = RestUtils.getResponse().jsonPath().get("token");
+    }
+
+    @Dado("que tenha realizado o login com dados validos")
+    public void queTenhaRealizadoOLoginComDadosValidos() {
+        queTenhoUmPayloadValidoDaAPIDeLogin();
+        envioUmaRequisicaoDoTipoPOSTDeLogin();
+        armazenoOTokenQueReceboDoResponseDeLogin();
+    }
+
 
 }

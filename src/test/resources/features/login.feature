@@ -26,7 +26,7 @@ Funcionalidade: Realizar Login
     Exemplos:
       | id                                | email              | senha  |
       | Realizar login com email invalido | invalido@email.com | 123456 |
-      | Realizar login com email {[]}     | [1,2]              | 123456 |
+      | Realizar login com email []       | [1,2]              | 123456 |
       | Realizar login com email true     | true               | 123456 |
       | Realizar login com email null     |                    | 123456 |
 
