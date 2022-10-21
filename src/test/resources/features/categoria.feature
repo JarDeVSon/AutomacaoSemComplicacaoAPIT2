@@ -22,3 +22,8 @@ Funcionalidade: Realizar Consulta de Categoria
     E valido que no campo "tipo[6]" possui o valor "Crime"
     E valido que no campo "tipo[7]" possui o valor "Thriller"
 
+  @semToken
+  Cenario: Realizar Consulta Categoria sem token
+    Quando realizo uma requisicao do tipo GET de Categoria
+    Entao valido que recebo status 403 no response
+    E valido que no campo "message" possui o valor "Access Denied"
