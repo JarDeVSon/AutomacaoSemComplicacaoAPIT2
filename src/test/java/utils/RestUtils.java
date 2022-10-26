@@ -32,8 +32,8 @@ public class RestUtils {
    public static Response postHeader(Map<String, String> header, Object json, ContentType contentType, String endpoint) {
         return response = RestAssured.given().log().all()
                 .relaxedHTTPSValidation()
-                .contentType(contentType)
                 .headers(header)
+                .contentType(contentType)
                 .body(json)
                 .when()
                 .post(endpoint)

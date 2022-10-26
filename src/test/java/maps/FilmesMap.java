@@ -50,8 +50,8 @@ public class FilmesMap {
         listCategoria = new ArrayList<>();
         categoria1 = new HashMap<>();
         categoria2 = new HashMap<>();
-        categoria1.put("tipo", "Ação");
-        categoria2.put("tipo", "Comédia");
+        categoria1.put("tipo", "Aventura");
+        categoria2.put("tipo", "Comedia");
         listCategoria.add(categoria1);
         listCategoria.add(categoria2);
 
@@ -66,12 +66,10 @@ public class FilmesMap {
 
     public static void initFilme() {
         filme = new HashMap<>();
-        filme.put("nome", "Alerta Vermelho");
-        filme.put("descricao", "Um alerta vermelho da Interpol é emitido e o agente do FBI John Ha\n" +
-                "rtley assume o caso. Durante sua busca, ele se vê diante de um assalto ousado e é fo\n" +
-                "rçado a se aliar ao maior ladrão de arte da história, Nolan Booth, para capturar a l\n" +
-                "adra de arte mais procurada do mundo atualmente, Sarah Black.");
-        filme.put("duracao", 1.35);
+        filme.put("nome", "Black Adam");
+        filme.put("descricao", "Adao Negro e o filme solo do anti-heroi, " +
+                "baseado no personagem em quadrinhos Black Adam (Dwayne Johnson) da DC Comics, grande antagonista de Shazam!");
+        filme.put("duracao", 2.05);
         filme.put("categorias", listCategoria);
         filme.put("plataformas", listPlataforma);
     }
