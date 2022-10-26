@@ -19,6 +19,11 @@ public class FilmesSteps {
     }
     @Entao("armazeno o id que recebo do response de Filmes")
     public void armazenoOIdQueReceboDoResponseDeFilmes() {
-        FilmesMap.id = RestUtils.getResponse().jsonPath().get("id");
+        FilmesMap.id = RestUtils.getResponse().jsonPath().get("id").toString();
+    }
+
+    @Quando("envio uma requisicao do tipo GET de Filmes")
+    public void envioUmaRequisicaoDoTipoGETDeFilmes() {
+        RestUtils.get(FilmesMap.getHeader(),"filmes");
     }
 }

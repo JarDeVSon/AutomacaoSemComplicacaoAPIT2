@@ -26,7 +26,7 @@ public class LoginSteps {
     }
     @Entao("armazeno o token que recebo do response de Login")
     public void armazenoOTokenQueReceboDoResponseDeLogin() {
-        LoginMap.token = RestUtils.getResponse().jsonPath().get("token");
+        LoginMap.token = RestUtils.getResponse().jsonPath().get("token").toString();
     }
 
     @Dado("que tenha realizado o login com dados validos")
