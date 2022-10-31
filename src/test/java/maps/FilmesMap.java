@@ -10,7 +10,7 @@ public class FilmesMap {
     private static Map<String, Object> filme;
     private static Map<String, Object> categoria1, categoria2, plataforma;
     private static List<Map<String, Object>> listCategoria, listPlataforma;
-    public static String id;
+    public static int id;
 
     public static Map<String, String> getHeader() {
         return header;
