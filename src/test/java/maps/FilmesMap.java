@@ -66,7 +66,7 @@ public class FilmesMap {
 
     public static void initFilme() {
         filme = new HashMap<>();
-        filme.put("nome", "Black Adam");
+        filme.put("nome", "Adao Negro porradeiro");
         filme.put("descricao", "Adao Negro e o filme solo do anti-heroi, " +
                 "baseado no personagem em quadrinhos Black Adam (Dwayne Johnson) da DC Comics, grande antagonista de Shazam!");
         filme.put("duracao", 2.05);
