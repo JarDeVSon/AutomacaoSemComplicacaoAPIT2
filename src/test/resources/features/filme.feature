@@ -13,19 +13,43 @@ Funcionalidade: CRUD Filmes
     E armazeno o id que recebo do response de Filmes
 
   @get
-  Cenario: Consultar Filme apos cadastro
+  Cenario: Consultar Filmes
     Dado que tenha realizado o login com dados validos
     E que tenho um payload valido da API de Filmes
     Quando envio uma requisicao do tipo GET de Filmes
     Entao valido que recebo status 200 no response
-    E valido que no campo "nome[5]" possui o valor "Black Adam"
 
+  @getNome
+  Cenario: Consultar Filme pelo nome
+    Dado que tenha realizado o login com dados validos
+    E que tenho um payload valido da API de Filmes
+    Quando envio uma requisicao do tipo GET de Filmes pelo nome
+    Entao valido que recebo status 200 no response
+    E valido que no campo "categorias[0].tipo[1]" possui o valor "Comedia"
   @put
   Cenario: Alterar Filme
     Dado que tenha realizado o login com dados validos
     E que tenho um payload valido da API de Filmes
+    Quando altero o indice 0 da lista de categorias de Filme com os valores
+      | tipo | Comedia |
     Quando altero o indice 1 da lista de categorias de Filme com os valores
-      | tipo | Drama |
+      | tipo | Terror |
     Quando realizo uma requisicao do tipo PUT de Filmes
     Entao valido que recebo status 200 no response
-    E valido que no campo "categorias.tipo[1]" possui o valor "Drama"
+    E valido que no campo "categorias.tipo[0]" possui o valor "Comedia"
+    E valido que no campo "categorias.tipo[1]" possui o valor "Terror"
+
+  @delete
+  Cenario: Deletar Filme
+    Dado que tenha realizado o login com dados validos
+    E que tenho um payload valido da API de Filmes
+    Quando realizo uma requisicao do tipo DELETE de Filmes
+    Entao valido que recebo status 200 no response
+
+  @get
+  Cenario: Consultar Filmes apos exclusao
+    Dado que tenha realizado o login com dados validos
+    E que tenho um payload valido da API de Filmes
+    Quando envio uma requisicao do tipo GET de Filmes pelo nome
+    Entao valido que recebo status 200 no response
+    E valido que recebo uma lista vazia no response
