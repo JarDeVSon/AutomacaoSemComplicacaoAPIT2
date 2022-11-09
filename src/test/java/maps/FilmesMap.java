@@ -50,7 +50,7 @@ public class FilmesMap {
         listCategoria = new ArrayList<>();
         categoria1 = new HashMap<>();
         categoria2 = new HashMap<>();
-        categoria1.put("tipo", "Aventura");
+        categoria1.put("tipo", "Acao");
         categoria2.put("tipo", "Comedia");
         listCategoria.add(categoria1);
         listCategoria.add(categoria2);
