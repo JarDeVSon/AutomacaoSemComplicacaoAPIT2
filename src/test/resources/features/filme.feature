@@ -47,7 +47,7 @@ Funcionalidade: CRUD Filmes
     E valido que no campo "categorias.tipo[1]" possui o valor "Terror"
 
   @getAposAlteracao
-  Cenario: Consultar Filme após cadastro
+  Cenario: Consultar Filme após alteracao
     Dado que tenha realizado o login com dados validos
     E que tenho um payload valido da API de Filmes
     Quando envio uma requisicao do tipo GET de Filmes pelo nome

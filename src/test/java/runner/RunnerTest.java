@@ -25,7 +25,8 @@ public class RunnerTest {
     }
     @AfterClass
     public static void report() throws IOException {
-        if (System.getProperty("os.name").equals("Windows 10")) {
+        if (System.getProperty("os.name").equals("Windows 10")
+                || System.getProperty("os.name").equals("Windows 11")) {
             Runtime.getRuntime().exec("cmd.exe /c mvn verify");
         } else {
             Runtime.getRuntime().exec("sh -c mvn verify");
