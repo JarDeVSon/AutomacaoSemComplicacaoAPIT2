@@ -13,9 +13,9 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        plugin = {"json:target/reports/CucumberReports.json", "pretty"},
+        plugin = {"json:target/report/cucumber.json", "pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@filmes"
+        tags = "@regressivo"
 )
 
 public class RunnerTest {
@@ -27,9 +27,9 @@ public class RunnerTest {
     public static void report() throws IOException {
         if (System.getProperty("os.name").equals("Windows 10")
                 || System.getProperty("os.name").equals("Windows 11")) {
-            Runtime.getRuntime().exec("cmd.exe /c mvn verify");
+            Runtime.getRuntime().exec("cmd.exe /c mvn cluecumber-report:reporting");
         } else {
-            Runtime.getRuntime().exec("sh -c mvn verify");
+            Runtime.getRuntime().exec("sh -c mvn cluecumber-report:reporting");
         }
     }
 }

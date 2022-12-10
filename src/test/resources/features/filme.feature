@@ -9,7 +9,7 @@ Funcionalidade: CRUD Filmes
     E que tenho um payload valido da API de Filmes
     Quando envio uma requisicao do tipo POST de Filmes
     Entao valido que recebo status 201 no response
-    E valido que no campo "categorias.tipo[1]" possui o valor "Comedia"
+    E valido que no campo "nome[0]" possui o valor "Adao Negro porradeiro"
     E armazeno o id que recebo do response de Filmes
 
     @getAposInclusao
@@ -18,7 +18,7 @@ Funcionalidade: CRUD Filmes
     E que tenho um payload valido da API de Filmes
     Quando envio uma requisicao do tipo GET de Filmes pelo nome
     Entao valido que recebo status 200 no response
-    E valido que no campo "categorias[0].tipo[1]" possui o valor "Comedia"
+    E valido que no campo "[0].nome" possui o valor "Adao Negro porradeiro"
   @get
   Cenario: Consultar Filmes
     Dado que tenha realizado o login com dados validos
@@ -32,7 +32,7 @@ Funcionalidade: CRUD Filmes
     E que tenho um payload valido da API de Filmes
     Quando envio uma requisicao do tipo GET de Filmes pelo nome
     Entao valido que recebo status 200 no response
-    E valido que no campo "categorias[0].tipo[1]" possui o valor "Comedia"
+    E valido que no campo "[0].nome" possui o valor "Adao Negro porradeiro"
   @put
   Cenario: Alterar Filme
     Dado que tenha realizado o login com dados validos
@@ -50,7 +50,7 @@ Funcionalidade: CRUD Filmes
   Cenario: Consultar Filme após alteracao
     Dado que tenha realizado o login com dados validos
     E que tenho um payload valido da API de Filmes
-    Quando envio uma requisicao do tipo GET de Filmes pelo nome
+    Quando envio uma requisicao do tipo GET de Filmes
     Entao valido que recebo status 200 no response
     E valido que no campo "categorias[0].tipo[0]" possui o valor "Drama"
     E valido que no campo "categorias[0].tipo[1]" possui o valor "Terror"
