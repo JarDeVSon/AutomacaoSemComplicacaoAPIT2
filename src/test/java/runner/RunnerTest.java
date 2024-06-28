@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+//        features = "src/test/resources/features",
         glue = "steps",
         plugin = {"json:target/report/cucumber.json", "pretty"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
@@ -20,8 +20,9 @@ import java.io.IOException;
 
 public class RunnerTest {
     @BeforeClass
+    //Arrange
     public static void setUp(){
-        RestUtils.setBaseURI("http://localhost:8080/");
+        RestUtils.setBaseURI("https://serverest.dev/#/");
     }
     @AfterClass
     public static void report() throws IOException {
